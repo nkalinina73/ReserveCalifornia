@@ -4,13 +4,13 @@
   <test thread-count="5" name="Login Page Test(failed)" verbose="0">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="LoginTest">
+      <class name="tests.LoginTest">
         <methods>
-          <include name="setup"/>
-          <include name="tearDown"/>
           <include name="loginValidEmailPassword"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- LoginTest -->
+      </class> <!-- tests.LoginTest -->
     </classes>
   </test> <!-- Login Page Test(failed) -->
 </suite> <!-- Failed suite [ReserveCalifornia] -->
