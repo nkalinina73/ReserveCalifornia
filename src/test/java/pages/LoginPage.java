@@ -18,20 +18,21 @@ public class LoginPage extends BasePage{
     By loginButton = By.id("login-btn-mobile");
     By emailField = By.id("txtEmail");
     By pswdField = By.id("txtPassword");
-    //By reCAPTCHA = By.id("divGoogleCaptch");
+    By reCAPTCHA = By.id("divGoogleCaptch");
     By signInButton = By.id("responsive_buttons");
     By natalia = By.xpath("//button[@id='account-select-listbox-button']//span[contains(text(),'NATALIA')]");
 
-    public void clickLoginbutton(){findElement(loginButton).click();}
-    public void provideEmail (String email){findElement(emailField).sendKeys(email);}
-    public void providePassword (String password){findElement(pswdField).sendKeys(password);}
-    public void recaptchaUpeared (){
+    public void clickLoginbutton(){driver.findElement(loginButton).click();}
+    public void provideEmail (String email){driver.findElement(emailField).sendKeys(email);}
+    public void providePassword (String password){driver.findElement(pswdField).sendKeys(password);}
+/*    public void recaptchaUpeared (){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("divGoogleCaptch"))).isDisplayed();
-    }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(reCAPTCHA)).isDisplayed();
+    }*/
     public void clickSignInButton (){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();
+        driver.findElement(signInButton).click();
+        /*WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();*/
     }
-    public WebElement verifyIfLoggedIn(){return findElement(natalia);}
+    public WebElement verifyIfLoggedIn(){return driver.findElement(natalia);}
 }
