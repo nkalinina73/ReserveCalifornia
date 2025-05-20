@@ -1,23 +1,25 @@
-package base;
+package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     protected WebDriver driver;
+    public String baseUrl = "https://reservecalifornia.com/Web/";
 
 
     @Parameters({"browser"}) // supply with browsers info to the xml file
-    @BeforeTest // setup before test
+    @BeforeClass // setup before test
     public void setup(String browserName){
-
+        // Setting up web drivers to different browsers
         switch (browserName){
 
             case "chrome":
@@ -32,10 +34,15 @@ public class BaseTest {
             default:
                 System.out.println("please pass the right browser...");
         }
-        driver.get("https://reservecalifornia.com/Web/");
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
+    }
+
+    @BeforeMethod
+    public void open(){
+        driver.get(baseUrl);
 
     }
     @AfterMethod
