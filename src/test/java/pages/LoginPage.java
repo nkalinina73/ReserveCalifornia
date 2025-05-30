@@ -12,8 +12,8 @@ public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver givenDriver){
         super(givenDriver); //constructor
-
     }
+
     // locators
     By loginButton = By.id("login-btn-mobile");
     By emailField = By.id("txtEmail");
