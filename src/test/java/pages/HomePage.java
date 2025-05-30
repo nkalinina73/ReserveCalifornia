@@ -19,10 +19,13 @@ public class HomePage extends BasePage {
     By options = By.xpath("//li[@class='select-options']");
 
     public void provideParkName(String parkName){
-        driver.findElement(searchTextField).sendKeys();
+
+        driver.findElement(searchTextField).sendKeys(parkName);
     }
 
     public void selectingFromOptions(){
+        // make code with Enter press
+        driver.findElement(searchTextField).click();
         List<WebElement> listOfOptions = driver.findElements(options);
         WebElement q;
         for (int i=0; i < listOfOptions.size(); i++){
