@@ -7,7 +7,7 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.SearchParkTest"/>
         </classes>
     </test>
 </suite>

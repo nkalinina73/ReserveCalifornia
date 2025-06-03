@@ -17,13 +17,17 @@ public class HomePage extends BasePage {
     By searchTextField = By.id("home-search-box");
     By optionsList = By.xpath("//ul[@class='select-options-container']");
     By options = By.xpath("//li[@class='select-options']");
+    By dropDownOptionSunsetSB = By.xpath("//li[contains(text(), 'Sunset Beach')]");
 
     public void provideParkName(String parkName){
-
         driver.findElement(searchTextField).sendKeys(parkName);
     }
 
-    public void selectingFromOptions(){
+    public void selectTheSunsetSB (){
+        driver.findElement(dropDownOptionSunsetSB).click();
+
+    }
+/*    public void selectingFromOptions(){
         // make code with Enter press
         driver.findElement(searchTextField).click();
         List<WebElement> listOfOptions = driver.findElements(options);
@@ -31,10 +35,7 @@ public class HomePage extends BasePage {
         for (int i=0; i < listOfOptions.size(); i++){
             q =listOfOptions.get(i);
             System.out.println(q.getText());
-        }
-
-    }
-
+        }*/
 
 
 
