@@ -12,15 +12,15 @@ public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver givenDriver){
         super(givenDriver); //constructor
-
     }
+
     // locators
     By loginButton = By.id("login-btn-mobile");
     By emailField = By.id("txtEmail");
     By pswdField = By.id("txtPassword");
     By reCAPTCHA = By.id("divGoogleCaptch");
     By signInButton = By.id("responsive_buttons");
-    By natalia = By.xpath("//button[@id='account-select-listbox-button']//span[contains(text(),'NATALIA')]");
+    By natalia = By.xpath("//button[@id='account-select-listbox-button']//span[contains(text(),'NATA')]");
 
     public void clickLoginbutton(){driver.findElement(loginButton).click();}
     public void provideEmail (String email){driver.findElement(emailField).sendKeys(email);}

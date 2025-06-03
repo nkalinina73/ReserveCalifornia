@@ -6,6 +6,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -13,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     protected WebDriver driver;
+    LoginPage loginPage;
+    HomePage homePage;
     public String baseUrl = "https://reservecalifornia.com/Web/";
 
 
@@ -35,7 +39,7 @@ public class BaseTest {
                 System.out.println("please pass the right browser...");
         }
         driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
     }
@@ -43,11 +47,14 @@ public class BaseTest {
     @BeforeMethod
     public void open(){
         driver.get(baseUrl);
+        loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
+
 
     }
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
 }
 

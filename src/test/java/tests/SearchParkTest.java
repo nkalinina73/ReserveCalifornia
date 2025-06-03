@@ -2,14 +2,12 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
 
 @Test
-public class LoginTest extends BaseTest {
+public class SearchParkTest extends BaseTest {
 
     @Test
-    public void loginValidEmailPassword() throws InterruptedException {
+    public void searchForSunsetSB () throws InterruptedException {
 
         loginPage.clickLoginbutton();
         loginPage.provideEmail("arnatashakalinina@gmail.com");
@@ -19,7 +17,9 @@ public class LoginTest extends BaseTest {
         loginPage.clickSignInButton();
         Assert.assertTrue(loginPage.verifyIfLoggedIn().isDisplayed());
 
+        homePage.provideParkName("sunset");
+        homePage.selectTheSunsetSB();
+        //homePage.selectingFromOptions();
     }
-
 
 }
